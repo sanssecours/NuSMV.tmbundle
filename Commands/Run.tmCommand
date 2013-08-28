@@ -5,7 +5,10 @@
 	<key>beforeRunningCommand</key>
 	<string>saveActiveFile</string>
 	<key>command</key>
-	<string>#require_cmd NuSMV
+	<string>#!/usr/bin/env bash
+[[ -f "${TM_SUPPORT_PATH}/lib/bash_init.sh" ]] &amp;&amp; . "${TM_SUPPORT_PATH}/lib/bash_init.sh"
+
+#require_cmd NuSMV
 
 . "${TM_SUPPORT_PATH}/lib/html.sh"
 . "${TM_SUPPORT_PATH}/lib/webpreview.sh"
@@ -15,22 +18,30 @@ html_header 'NuSMV' "$FILE"
 SRC=${TM_FILENAME}
 
 # Run
-RESULT=`/Users/wannes/bin/NuSMV "$SRC"`
+RESULT=`NuSMV "$SRC"`
 
 echo "$RESULT" | pre
 
 html_footer</string>
 	<key>input</key>
 	<string>document</string>
+	<key>inputFormat</key>
+	<string>text</string>
 	<key>keyEquivalent</key>
 	<string>@r</string>
 	<key>name</key>
 	<string>Run</string>
-	<key>output</key>
-	<string>showAsHTML</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>html</string>
+	<key>outputLocation</key>
+	<string>newWindow</string>
 	<key>scope</key>
 	<string>source.nusmv</string>
 	<key>uuid</key>
 	<string>15E631EF-B7DC-44A3-988D-B04A4EF40656</string>
+	<key>version</key>
+	<integer>2</integer>
 </dict>
 </plist>

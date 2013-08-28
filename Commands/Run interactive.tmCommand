@@ -10,21 +10,29 @@
 exec osascript &lt;&lt;EOF
 tell application "Terminal"
 	activate
-	do script "NuSMV -int $TM_FILEPATH"
+	do script "NuSMV -int \"${TM_FILEPATH}\""
 end tell
 EOF
 </string>
 	<key>input</key>
 	<string>document</string>
+	<key>inputFormat</key>
+	<string>text</string>
 	<key>keyEquivalent</key>
 	<string>@R</string>
 	<key>name</key>
 	<string>Run interactive</string>
-	<key>output</key>
-	<string>showAsTooltip</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>text</string>
+	<key>outputLocation</key>
+	<string>toolTip</string>
 	<key>scope</key>
 	<string>source.nusmv</string>
 	<key>uuid</key>
 	<string>3A3C0E76-860F-469D-82C3-3ED1AEF2F858</string>
+	<key>version</key>
+	<integer>2</integer>
 </dict>
 </plist>
