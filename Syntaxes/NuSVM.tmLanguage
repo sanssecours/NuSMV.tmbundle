@@ -86,13 +86,13 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\bboolean|array|of|integer|real|word|word1|bool|TRUE|FALSE|\d+\b</string>
+			<string>\b(boolean|array|of|integer|real|word|word1|bool|TRUE|FALSE|\d+)\b</string>
 			<key>name</key>
 			<string>storage.nusmv</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\binit|next|EX|AX|EF|AF|EG|AG|E|F|O|G|H|X|Y|Z|A|U|S|V|T|BU|EBF|ABF|ABG\b</string>
+			<string>\b(init|next|EX|AX|EF|AF|EG|AG|E|F|O|G|H|X|Y|Z|A|U|S|V|T|BU|EBF|ABF|ABG)\b</string>
 			<key>name</key>
 			<string>keyword.operator.nusmv</string>
 		</dict>
@@ -106,7 +106,7 @@
 			<key>match</key>
 			<string>\b[a-zA-Z_][a-zA-Z0-9_$#\\-]*\b</string>
 			<key>name</key>
-			<string>a.variable.nusmv</string>
+			<string>variable.nusmv</string>
 		</dict>
 	</array>
 	<key>scopeName</key>
