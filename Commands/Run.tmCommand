@@ -5,24 +5,16 @@
 	<key>beforeRunningCommand</key>
 	<string>saveActiveFile</string>
 	<key>command</key>
-	<string>#!/usr/bin/env bash
-[[ -f "${TM_SUPPORT_PATH}/lib/bash_init.sh" ]] &amp;&amp; . "${TM_SUPPORT_PATH}/lib/bash_init.sh"
+	<string>#!/usr/bin/env ruby
 
-#require_cmd NuSMV
+require ENV["TM_SUPPORT_PATH"] + "/lib/tm/executor"
+require ENV["TM_SUPPORT_PATH"] + "/lib/tm/save_current_document"
 
-. "${TM_SUPPORT_PATH}/lib/html.sh"
-. "${TM_SUPPORT_PATH}/lib/webpreview.sh"
+TextMate.save_current_document
+TextMate::Executor.make_project_master_current_document
 
-# Prepare output window.
-html_header 'NuSMV' "$FILE"
-SRC=${TM_FILENAME}
-
-# Run
-RESULT=`NuSMV "$SRC"`
-
-echo "$RESULT" | pre
-
-html_footer</string>
+TextMate::Executor.run(["NuSMV"], ENV["TM_FILEPATH"], :version_args =&gt; [])
+</string>
 	<key>input</key>
 	<string>document</string>
 	<key>inputFormat</key>
